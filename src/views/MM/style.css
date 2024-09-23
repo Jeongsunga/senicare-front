@@ -36,7 +36,7 @@
 
 #mm-wrapper .bottom {
     position: relative;
-    
+
     display: flex;
     justify-content: center;
 
@@ -186,6 +186,7 @@
 
 .page.active {
     color: rgba(64, 64, 64, 1);
+    font-weight: 700;
 
     cursor: default;
 }
