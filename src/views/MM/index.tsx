@@ -51,7 +51,7 @@ function PostBox({ unShow }: PostBoxProps) {
     setPurpose(value);
   }
 
-  // event handler: 갯수 변경 이벤트 처리 함수 //
+  // event handler: 개수 변경 이벤트 처리 함수 //
   const onCountChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
     const { value } = event.target;
     const regexp = /^[0-9]*$/;
@@ -89,8 +89,8 @@ function PostBox({ unShow }: PostBoxProps) {
           <input className='input' value={purpose} placeholder='용도를 입력해주세요' onChange={onPurposeChangeHandler}/>
         </div>
         <div className='input-box'>
-          <div className='input-label'>갯수</div>
-          <input className='input' value={count} placeholder='갯수를 입력해주세요' onChange={onCountChangeHandler}/>
+          <div className='input-label'>개수</div>
+          <input className='input' value={count} placeholder='개수를 입력해주세요' onChange={onCountChangeHandler}/>
         </div>
       </div>
       <div className='button primary' onClick={onPostButtonClickHandler}>등록</div>
@@ -160,7 +160,34 @@ export default function MM() {
         <div className='top-text'>전체 <span className='emphasis'>150건</span> | 페이지 <span className='emphasis'>1/100</span></div>
         {!showPostBox && !showPatchBox && <div className='button primary' onClick={onPostButtonClickHandler}>등록</div>}
       </div>
-      <div className='main'></div>
+      <div className='main'>
+        <div className='table'>
+          <div className='th'>
+            <div className='td-tool-number'>용품번호</div>
+            <div className='td-name'>용품명</div>
+            <div className='td-purpose'>용도</div>
+            <div className='td-count'>개수</div>
+            <div className='td-buttons'>
+              <div className='td-edit'>수정</div>
+              <div className='td-delete'>삭제</div>
+            </div>
+          </div>
+          <div className='tr'>
+            <div className='td-tool-number'>용품번호</div>
+            <div className='td-name'>용품명</div>
+            <div className='td-purpose'>용도</div>
+            <div className='td-count'>개수</div>
+            <div className='td-buttons'>
+              <div className='td-edit'>
+                <div className='icon-button edit'></div>
+              </div>
+              <div className='td-delete'>
+                <div className='icon-button trash'></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className='bottom'></div>
     </div>
   )
