@@ -165,7 +165,7 @@ export default function CSWrite() {
             </div>
           </div>
           <div className='modal-bottom'>
-            <div className='button disable' style={{ boxSizing: 'border-box', width: '200px' }} onClick={onModalOpenHandler}>닫기</div>
+            <div className='button disable' onClick={onModalOpenHandler}>닫기</div>
           </div>
         </div>
       </div>
