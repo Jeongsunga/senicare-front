@@ -1,5 +1,7 @@
-import PostCustomerRequestDto from "./post-nurse.customer.dto"
+import PostCustomerRequestDto from "./post-customer.customer.dto"
+import PatchCustomerRequestDto from "./patch-customer.request.dto"
 
 export type {
-    PostCustomerRequestDto
+    PostCustomerRequestDto,
+    PatchCustomerRequestDto
 }
