@@ -22,6 +22,7 @@ const SIGN_IN_API_URL = `${AUTH_MODULE_URL}/sign-in`;
 const NURSE_MODUEL_URL = `${SENICARE_API_DOMAIN}/api/v1/nurse`;
 
 const GET_NURSE_LIST_API_URL = `${NURSE_MODUEL_URL}`;
+const GET_NURSE_API_URL = (userId: string) => `${NURSE_MODUEL_URL}/${userId}`; 
 const GET_SIGN_IN_API_URL = `${NURSE_MODUEL_URL}/sign-in`;
 
 const TOOL_MODULE_URL = `${SENICARE_API_DOMAIN}/api/v1/tool`;
