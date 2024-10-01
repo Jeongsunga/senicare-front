@@ -7,6 +7,7 @@ import { PatchToolRequestDto, PostToolRequestDto } from "./dto/request/tool";
 import { GetToolListResponseDto, GetToolResponseDto } from "./dto/response/tool";
 import { GetCareRecordResponseDto, GetCustomerListResponseDto, GetCustomerResponseDto } from "./dto/response/customer";
 import { PatchCustomerRequestDto, PostCareRecordRequestDto, PostCustomerRequestDto } from "./dto/request/customer";
+import { PatchNurseRequestDto } from "./dto/request/nurse";
 
 // variable: API URL 상수 //
 const SENICARE_API_DOMAIN = 'http://localhost:4000';
@@ -42,6 +43,7 @@ const GET_CUSTOMER_API_URL = (customerNumber: number | string) => `${CUSTOMER_MO
 const PATCH_CUSTOMER_API_URL = (customerNumber: number | string) => `${CUSTOMER_MODULE_URL}/${customerNumber}`; 
 const DELETE_CUSTOMER_API_URL = (customerNumber: number | string) => `${CUSTOMER_MODULE_URL}/${customerNumber}`;
 const POST_CARE_RECORD_API_URL = (customerNumber: number | string) => `${CUSTOMER_MODULE_URL}/${customerNumber}/care-record`;
+const PATCH_NURSE_API_URL = `${NURSE_MODUEL_URL}`;
 const GET_CARE_RECORD_LIST_API_URL = (customerNumber: number | string) => `${CUSTOMER_MODULE_URL}/${customerNumber}/care-records`;
 
 // function: Authorizarion Bearer 헤더 //
@@ -120,6 +122,14 @@ export const getNurseRequest = async(userId: string, accessToken: string) => {
 export const getSignInRequest = async (accessToken: string) => {
     const responseBody = await axios.get(GET_SIGN_IN_API_URL, bearerAuthorization(accessToken))
         .then(responseDataHandler<GetSignInResponseDto>)
+        .catch(responseErrorHandler);
+    return responseBody;
+};
+
+// function: patch nurse 요청 함수 //
+export const patchNurseRequest = async (requestBody: PatchNurseRequestDto, accessToken: string) => {
+    const responseBody = await axios.patch(PATCH_NURSE_API_URL, requestBody, bearerAuthorization(accessToken))
+        .then(responseDataHandler<ResponseDto>)
         .catch(responseErrorHandler);
     return responseBody;
 };
